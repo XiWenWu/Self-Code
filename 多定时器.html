@@ -1,0 +1,55 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta charset="utf-8">
+	<style type="text/css">
+	div {
+		width: 100px;
+		height: 50px;
+		background: red;
+		margin: 20px;
+	}
+	</style>
+	<script type="text/javascript">
+	window.onload=function(){
+		var oDiv=document.getElementsByTagName("div");
+		for(var i=0; i<oDiv.length; i++){
+			//  给每一个div添加一个定时器属性。这样能使他们单独的工作
+			oDiv[i].timer=null;
+			oDiv[i].onmousemove=function(){
+				move(this, 400);
+			};
+			oDiv[i].onmouseout=function(){
+				move(this, 100);
+			};
+		}
+	}
+	function move(obj, value){
+		//  每次触发时线关闭定时器
+		clearInterval(obj.timer);
+		obj.timer=setInterval(function(){
+			//  缓冲运动
+			var speed=(value-obj.offsetWidth)/10;
+			//  根据速度的大小来决定向上取整还是向下取整
+			speed>0?Math.ceil(speed):Math.floor(speed);
+			if(obj.offsetWidth==value){
+				clearInterval(obj.timer)
+			}
+			else{
+				obj.style.width=obj.offsetWidth+speed+"px";
+			}
+		}, 30);
+	}
+	</script>
+</head>
+
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+<script type="text/javascript">
+	//  通过触发DIV的伸缩来弹走物体
+	//  增加弹性、力量的计算
+</script>
+</html>
