@@ -1,0 +1,66 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="">
+	<style type="text/css">
+	#div1 {
+		width: 50px;
+		height: 50px;
+		background: red;
+		position: absolute;
+	}
+	#div2 {
+		width: 1px;
+		height: 100px;
+		background: black;
+		position: absolute;
+		left: 300px;
+	}
+	#div3 {
+		width: 1px;
+		height: 100px;
+		background: black;
+		position: absolute;
+		left: 600px;
+	}
+	</style>
+	<script type="text/javascript">
+	var timer=null;
+	var speed=0;
+
+	function move(value){
+
+		var oDiv=document.getElementById("div1");
+		//  防止重复点击增加定时器
+		clearInterval(timer);
+		//  根据当前位置判断速度
+		if(oDiv.offsetLeft>=value){
+			speed=-7;
+		}
+		else{
+			speed=7;
+		}
+
+
+		timer=setInterval(function(){
+
+			if(Math.abs(oDiv.offsetLeft-value)<7){
+				clearInterval(timer);
+				oDiv.style.left=value+"px";
+			}
+			else{
+				oDiv.style.left=oDiv.offsetLeft+speed+"px";
+			}
+		}, 30)
+	}
+	</script>
+</head>
+<body>
+	<button type="button" onclick="move(300)">press to 300px</button>
+	<button type="button" onclick="move(600)">press to 600px</button>
+	<div id="div1"></div>
+	<div id="div2"></div>
+	<div id="div3"></div>
+</body>
+</html>
