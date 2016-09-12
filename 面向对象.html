@@ -1,0 +1,33 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>blank</title>
+	<link rel="stylesheet" type="text/css" href="">
+	<script>
+	//  构造函数
+	function creatDemo(_name, _qq){
+		var demo=new Object();
+		demo.name=_name;
+		demo.qq=_qq;
+		demo.printName=function(){
+			alert("名字："+this.name);
+		}
+		demo.pringQQ=function(){
+			alert("QQ："+this.qq);
+		}
+		return demo;
+	}
+	var demo1=creatDemo("Lily", 99999999);
+	demo1.printName();
+	demo1.pringQQ();
+
+	var demo2=creatDemo("Lucy", 22222222);
+	demo2.printName();
+	demo2.pringQQ();
+
+	</script>
+</head>
+<body>
+</body>
+</html>
