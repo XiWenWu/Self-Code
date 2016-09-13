@@ -1,0 +1,45 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta charset="utf-8">
+	<style type="text/css">
+
+	</style>
+	<script type="text/javascript">
+	window.onload=function(){
+		var oDiv=document.getElementById("div1");
+		var oTr=oDiv.getElementsByTagName("tr");
+		var oTd=null;
+		//alert("oTr.length " +oTr.length );
+		for(var i=0; i<oTr.length; i++){
+			var ll=oTr[i].getElementsByTagName("td");
+			for(var j=0; j<ll.length; j++){
+				oTd=oTr[i].getElementsByTagName("td")[j];
+				alert(oTd.innerHTML);
+			}
+		}
+	}
+	</script>
+</head>
+<body>
+	<div id="div1">
+		<table width="400px" border="1px">
+			<tr>
+				<td>上衣</td>
+				<td>￥：120</td>
+				<td>￥：60</td>
+			</tr>
+			<tr>
+				<td>裤子</td>
+				<td>￥：100</td>
+				<td>￥：50</td>
+			</tr>
+			<tr>
+				<td>袜子</td>
+				<td>￥：10</td>
+				<td>￥：5</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>
